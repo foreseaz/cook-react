@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+// import Logo from '~/icons/logo.svg'
 
 import styles from './Home.css'
 
@@ -9,7 +9,6 @@ class Home extends Component {
     return (
       <div className={styles.container}>
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
