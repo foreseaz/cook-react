@@ -9,7 +9,7 @@ import styles from './Home.css'
 import '~/styles/global/global.css'
 
 class Home extends React.Component {
-  render() {
+  render () {
     return (
       <main>
         <div className={styles.container}>

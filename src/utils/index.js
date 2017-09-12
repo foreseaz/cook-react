@@ -5,7 +5,7 @@ export const getDefaultLanguage = () => {
     ? (window.navigator.userLanguage || window.navigator.language)
     : ''
 
-  switch(defaultLanguage.toLowerCase()) {
+  switch (defaultLanguage.toLowerCase()) {
     case 'zh-cn':
       return 'cn'
     case 'zh-tw':
