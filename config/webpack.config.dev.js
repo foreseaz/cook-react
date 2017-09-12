@@ -88,12 +88,6 @@ module.exports = {
   module: {
     strictExportPresence: true,
     rules: [
-      // TODO: Disable require.ensure as it's not a standard language feature.
-      // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
-      // { parser: { requireEnsure: false } },
-
-      // First, run the linter.
-      // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
@@ -175,6 +169,21 @@ module.exports = {
               },
               require.resolve('postcss-loader'),
             ]
+          },
+          {
+            test: /\.svg$/,
+            use: [
+              { loader: 'babel-loader' },
+              {
+                loader: 'react-svg-loader',
+                query: {
+                  svgo: {
+                    plugins: [{ removeTitle: true }],
+                    floatPrecision: 2,
+                  },
+                },
+              },
+            ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
