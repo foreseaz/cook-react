@@ -7,9 +7,9 @@ const Menu = ({ list }) => (
   <div className={styles.menu}>
     <ul>
       {
-        list.map(elem => (
-          <li>
-            <a href='#'>{elem}</a>
+        list.map((elem, idx) => (
+          <li key={idx}>
+            <a href='/'>{elem}</a>
           </li>
         ))
       }

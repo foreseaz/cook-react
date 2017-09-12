@@ -2,6 +2,7 @@ import * as React from 'react'
 import Logo from '~/styles/icons/logo.svg'
 
 import Localization from '~/utils/locales'
+import User from '~/utils/api/User'
 
 import Menu from '~/components/Menu'
 
@@ -9,6 +10,19 @@ import styles from './Home.css'
 import '~/styles/global/global.css'
 
 class Home extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      user: ''
+    }
+  }
+
+  componentDidMount () {
+    User.Info.get('foreseaz').then(data => {
+      this.setState({ user: data })
+    })
+  }
+
   render () {
     return (
       <main>
@@ -18,6 +32,9 @@ class Home extends React.Component {
           <h2>{Localization.title}</h2>
         </div>
         <p className='global-without-hash'>This is text with global css</p>
+        <pre>
+          {JSON.stringify(this.state.user, null, 2)}
+        </pre>
       </main>
     )
   }
