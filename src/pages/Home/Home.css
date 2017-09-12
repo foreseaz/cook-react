@@ -1,3 +1,7 @@
 .container {
-  color: red;
+  color: var(--blue);
+
+  svg {
+    width: 100px;
+  }
 }

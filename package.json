@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "cssrecipes-defaults": "^0.5.0",
+    "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "querystring": "^0.2.0",
     "react": "^15.6.1",
