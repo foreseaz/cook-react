@@ -10,7 +10,10 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+
 const paths = require('./paths');
+const staticRoutes = require('../src/static_routes');
 const getClientEnvironment = require('./env');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -72,6 +75,10 @@ module.exports = {
       path
         .relative(paths.appSrc, info.absoluteResourcePath)
         .replace(/\\/g, '/'),
+    /* IMPORTANT!
+     * You must compile to UMD or CommonJS
+     * so it can be required in a Node context: */
+    libraryTarget: 'umd'
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
@@ -265,6 +272,7 @@ module.exports = {
     // in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
+    new StaticSiteGeneratorPlugin('main', staticRoutes.routes, staticRoutes),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
