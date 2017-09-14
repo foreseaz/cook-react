@@ -34,6 +34,7 @@ Personalized boilerplate to bootstrap a react project, with more maintainable st
 + normalize css with `normalize.css`, `cssrecipes-defaults` and `reset-css`
 + `lodash` for god sake
 + add api fetch
++ add `react-router v4`
 + add i18n
 + add standard JSLint
 
@@ -42,8 +43,9 @@ Personalized boilerplate to bootstrap a react project, with more maintainable st
 + `/components`
 + `/styles`
   - `/global`: global css without modulized
-  - `/icons`: svgs
   - `/vars`: reusable styles variables
++ `/assets`  
+  - `/icons`: svgs
 + `/utils`
   - `/api`: service-based api granularity
   - `/constants`: global constants

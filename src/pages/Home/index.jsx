@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Logo from '~/styles/icons/logo.svg'
+import Logo from '~/assets/icons/logo.svg'
 
 import Localization from '~/utils/locales'
 import User from '~/utils/api/User'
@@ -27,7 +27,11 @@ class Home extends React.Component {
     return (
       <main>
         <div className={styles.container}>
-          <Menu list={['foo', 'bar', 'baz']} />
+          <Menu
+            list={
+              [{ label: 'Home', to: '/' }, { label: 'About', to: '/about' }]
+            }
+          />
           <Logo />
           <h2>{Localization.title}</h2>
         </div>

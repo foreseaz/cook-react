@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
-import Home from './pages/Home'
+
+import { Switch, Route, Redirect } from 'react-router-dom'
+import routes from '~/routes'
 
 import './styles/main.css'
 
 class App extends Component {
   render () {
     return (
-      <Home />
+      <Switch>
+        {routes.map((route, key) => (
+          <Route
+            key={key}
+            {...route}
+          />
+        ))}
+        <Redirect from="*" to="/"/>
+      </Switch>
     )
   }
 }
