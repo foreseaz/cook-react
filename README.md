@@ -1,10 +1,10 @@
-### Cook React - another react boilerplate
+## Cook React - another react boilerplate
 
-## Background
+### Background
 Personalized boilerplate to bootstrap a react project, with more maintainable structure.
 
-## master branch checklist
-### modification from `create-react-app`
+### `master` branch
+#### modification from `create-react-app`
 + `.babelrc` with `babel-plugin-root-import`
   - `~` for `/src`
   - `η` for `/node_modules`
@@ -38,7 +38,7 @@ Personalized boilerplate to bootstrap a react project, with more maintainable st
 + add i18n
 + add standard JSLint
 
-### structure
+#### structure
 + `/pages`
 + `/components`
 + `/styles`
@@ -50,3 +50,10 @@ Personalized boilerplate to bootstrap a react project, with more maintainable st
   - `/api`: service-based api granularity
   - `/constants`: global constants
   - `/locales`: i18n
+
+### `static` branch
+Without following [Gatsby](https://github.com/gatsbyjs/gatsby) structures which
+has swallowed too much configurations and just show you a tip of iceberg, use
+[static-site-generator-webpack-plugin](https://github.com/markdalgleish/static-site-generator-webpack-plugin#static-site-generator-webpack-plugin) to generate static pages with routing. Usage:
+  - 'yarn'
+  - 'yarn build'
