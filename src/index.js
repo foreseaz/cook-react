@@ -1,13 +1,18 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Provider, connect } from 'react-redux'
+import store from '~/store'
 
 import App from './App'
 
+const mapStateToProps = (state) => ({...state})
+const mapDispatchToProps = {}
+const Connect = connect(mapStateToProps, mapDispatchToProps)(App)
+
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>
-  , document.getElementById('root')
+  <Provider store={store}>
+    <Connect />
+  </Provider>,
+  document.getElementById('root')
 )

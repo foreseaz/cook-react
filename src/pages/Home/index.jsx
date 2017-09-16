@@ -1,8 +1,10 @@
 import * as React from 'react'
 import Logo from '~/assets/icons/logo.svg'
 
+import { connect } from 'react-redux'
+import * as UserAction from '~/actions/User'
+
 import Localization from '~/utils/locales'
-import User from '~/utils/api/User'
 
 import Menu from '~/components/Menu'
 
@@ -10,17 +12,8 @@ import styles from './Home.css'
 import '~/styles/global/global.css'
 
 class Home extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      user: ''
-    }
-  }
-
   componentDidMount () {
-    User.Info.get('foreseaz').then(data => {
-      this.setState({ user: data })
-    })
+    this.props.getUser('foreseaz')
   }
 
   render () {
@@ -37,11 +30,18 @@ class Home extends React.Component {
         </div>
         <p className='global-without-hash'>This is text with global css</p>
         <pre>
-          {JSON.stringify(this.state.user, null, 2)}
+          {JSON.stringify(this.props.user, null, 2)}
         </pre>
       </main>
     )
   }
 }
 
-export default Home
+const mapStateToProps = state => ({
+  user: state.user
+})
+const mapDispatchToProps = {
+  ...UserAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
