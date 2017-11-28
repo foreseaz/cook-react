@@ -1,10 +1,6 @@
 const paths = require('./config/paths');
 
-const font = require('./src/styles/vars/font');
-const colors = require('./src/styles/vars/colors');
-const utils = require('./src/styles/vars/utils');
-
-const variables = Object.assign({}, font, colors, utils);
+const { viewports, variables } = require('./src/styles/vars')
 
 module.exports = {
   plugins: [
@@ -12,20 +8,22 @@ module.exports = {
     require('postcss-import')({
       path: paths.appSrc,
     }),
+    require('postcss-custom-properties')({
+      variables
+    }),
+    require('postcss-custom-media')({
+      extensions: viewports
+    }),
+    require('postcss-mixins'),
+    require('postcss-calc'),
     require('postcss-nested'),
-    require('postcss-composes'),
-    require('postcss-cssnext')({
+    require('autoprefixer')({
       browsers: [
         '>1%',
         'last 4 versions',
         'Firefox ESR',
-        'not ie < 9', // React doesn't support IE8 anyway
-      ],
-      features: {
-        customProperties: {
-          variables,
-        },
-      },
-    }),
+        'not ie < 9'
+      ]
+    })
   ],
 };
