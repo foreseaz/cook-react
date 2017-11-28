@@ -6,7 +6,7 @@ import * as UserAction from '~/actions/User'
 
 import Localization from '~/utils/locales'
 
-import Menu from '~/components/Menu'
+import Page from '~/components/Page'
 
 import styles from './Home.css'
 import '~/styles/global/global.css'
@@ -18,21 +18,31 @@ class Home extends React.Component {
 
   render () {
     return (
-      <main>
-        <div className={styles.container}>
-          <Menu
-            list={
-              [{ label: 'Home', to: '/' }, { label: 'About', to: '/about' }]
-            }
-          />
-          <Logo />
-          <h2>{Localization.title}</h2>
-        </div>
-        <p className='global-without-hash'>This is text with global css</p>
-        <pre>
-          {JSON.stringify(this.props.user, null, 2)}
-        </pre>
-      </main>
+      <Page>
+        <Page.Row>
+          <div className={styles.container}>
+            <Logo />
+            <h2>{Localization.title}</h2>
+          </div>
+        </Page.Row>
+        <Page.Main>
+          <p className='global-without-hash'>This is text with global css</p>
+          <pre>
+            {JSON.stringify(this.props.user, null, 2)}
+          </pre>
+        </Page.Main>
+        <Page.Side>
+          <p>
+            Lorem ipsum dolor sit amet, et graece latine vix, eum ut inermis propriae consulatu, at qui summo iisque reformidans. Nam ex impedit consulatu. Nam integre iuvaret argumentum at, in natum adipisci usu. No sed enim iriure petentium. Ei per tation detraxit, eum verterem vituperatoribus id, has id laudem appareat.
+          </p>
+          <p>
+            Nulla graecis cu usu, populo tibique ne his. Accusamus sadipscing ad vel. Regione sapientem ut mel. Nec tation dissentiet in, laudem democritum scripserit no his, indoctum liberavisse intellegebat ut duo. Ut quo labitur incorrupte, eu sit tantas invenire scripserit, eu mea idque omnes discere.
+          </p>
+          <p>
+            Pertinax similique sit ea, eu vix prima nobis scripta. Ei mea elitr aperiri, an dicat reformidans pri. Nibh adhuc id mea. Est at indoctum assentior referrentur, inermis persecuti expetendis ex usu. Ad dicam officiis conclusionemque vix. Alia nominavi at pri, eum ut quem concludaturque.
+          </p>
+        </Page.Side>
+      </Page>
     )
   }
 }

@@ -1,14 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import routes from '~/routes'
+
+import Menu from '~/components/Menu'
 
 import './styles/main.css'
 
-class App extends Component {
+class App extends React.Component {
   render () {
     return (
-      <Router>
+      <div>
+        <Menu
+          list={
+            [{ label: 'Home', to: '/' }, { label: 'About', to: '/about' }]
+          }
+        />
         <Switch>
           {routes.map((route, key) => (
             <Route
@@ -18,7 +25,7 @@ class App extends Component {
           ))}
           <Redirect from="*" to="/"/>
         </Switch>
-      </Router>
+      </div>
     )
   }
 }

@@ -10,8 +10,8 @@ exports.fonts = fonts
 const utils = {
   gutter: '15px',
   'l-gutter': '20px',
-  'm-breakpoint': `${M_BREAKPOINT}px`,
   'l-breakpoint': `${L_BREAKPOINT}px`,
+  'm-breakpoint': `${M_BREAKPOINT}px`,
   'headerHeight': '110px'
 }
 exports.utils = utils
