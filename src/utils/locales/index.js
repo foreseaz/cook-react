@@ -1,26 +1,33 @@
-import { getDefaultLanguage } from '~/utils'
-import cn from './CN'
-import hk from './HK'
-import en from './EN'
+import _isNil from 'lodash/isNil'
+
+import { getLanguage } from '~/utils'
+import _get from 'lodash/get'
+import cn from './zh-cn.json'
+import hk from './zh-hk.json'
+import en from './en.json'
 
 const dictionaryMap = {
-  'cn': cn,
-  'hk': hk,
+  'zh-cn': cn,
+  'zh-hk': hk,
   'en': en
 }
 
-const locale = getDefaultLanguage()
+const locale = getLanguage()
 
-const Localization = dictionaryMap[locale]
-
-export const trans = (str, ...args) => {
-  if (!str) {
-    return str
+const t = (key, ...args) => {
+  args = args || []
+  let value = _get(dictionaryMap[locale], key, key)
+  if (args.length) {
+    args.forEach(arg => {
+      value = value.replace('%s', arg)
+    })
   }
-  (args || []).forEach(arg => {
-    str = str.replace('%s', arg)
-  })
-  return str
+  return value
 }
 
-export default Localization
+export const siteTitle = (extra) => {
+  extra = _isNil(extra) ? '' : ` - ${extra}`
+  return `${t('title')}${extra}`
+}
+
+export default t

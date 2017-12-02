@@ -4,9 +4,10 @@ import Logo from '~/assets/icons/logo.svg'
 import { connect } from 'react-redux'
 import * as UserAction from '~/actions/User'
 
-import Localization from '~/utils/locales'
+import t from '~/utils/locales'
 
 import Page from '~/components/Page'
+import LocaleToggler from '~/components/LocaleToggler'
 
 import styles from './Home.css'
 import '~/styles/global/global.css'
@@ -22,8 +23,11 @@ class Home extends React.Component {
         <Page.Row>
           <div className={styles.container}>
             <Logo />
-            <h2>{Localization.title}</h2>
+            <h2>{t('title')}</h2>
           </div>
+        </Page.Row>
+        <Page.Row>
+          <LocaleToggler />
         </Page.Row>
         <Page.Main>
           <p className='global-without-hash'>This is text with global css</p>
