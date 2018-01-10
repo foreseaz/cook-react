@@ -37,9 +37,9 @@ const colors = {
 exports.colors = colors
 
 const viewports = {
-  '--s-viewport': `(max-width: ${M_BREAKPOINT - 1}px)`, // small size
-  '--m-viewport': `(max-width: ${L_BREAKPOINT - 1}px)`, // medium size
-  '--l-viewport': `(min-width: ${L_BREAKPOINT}px)` // large size
+  '--s': `(max-width: ${M_BREAKPOINT - 1}px)`, // small size
+  '--m': `(max-width: ${L_BREAKPOINT - 1}px)`, // medium size
+  '--l': `(min-width: ${L_BREAKPOINT}px)` // large size
 }
 exports.viewports = viewports
 
