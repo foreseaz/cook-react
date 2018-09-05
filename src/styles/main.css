@@ -2,6 +2,19 @@
 @import "normalize.css";
 @import "reset-css";
 
+@font-face {
+  font-family: 'Saira';
+  font-style:  normal;
+  font-weight: 400;
+  src: url("./fonts/Saira-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: 'Saira';
+  font-style:  normal;
+  font-weight: 500;
+  src: url("./fonts/Saira-Bold.woff") format("woff");
+}
+
 html, body {
   height: 100%;
 }

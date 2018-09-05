@@ -3,7 +3,7 @@ const L_BREAKPOINT = 1020
 exports.breakpoints = { M_BREAKPOINT, L_BREAKPOINT }
 
 const fonts = {
-  sansFont: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue", "PingFang HK", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif'
+  sansFont: 'Saira, -apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue", "PingFang HK", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif'
 }
 exports.fonts = fonts
 
